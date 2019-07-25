@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ssm-redis</groupId>
 	<artifactId>ssm-redis</artifactId>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ssm-redis Maven Webapp</name>
 	<properties>
