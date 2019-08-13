@@ -31,10 +31,9 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
 	private UserMapper iUserDao;
-	
 
 
-	@Cacheable("getUserById")
+	@Cacheable(value = "getUserById",keyGenerator = "customKeyGenerator")
 	// 标注该方法查询的结果进入缓存，再次访问时直接读取缓存中的数据
 	@Override
 	@International
