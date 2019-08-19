@@ -3,7 +3,7 @@ package com.ssm.redis.test;
 import com.ssm.framework.redismsg.MessageProducer;
 import org.junit.Test;
 
-public class TestMsg extends BaseTest {
+public class TestMsg/* extends BaseTest*/ {
 
 
     @Test

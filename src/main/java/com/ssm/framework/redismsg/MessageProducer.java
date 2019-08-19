@@ -7,6 +7,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Component
 public class MessageProducer implements Runnable {
@@ -16,7 +18,7 @@ public class MessageProducer implements Runnable {
 
     public void putMessage(String message) {
         try {
-            Long size = JedisPoolUtils.getInstance().lpush(MESSAGE_KEY, message);
+            Long size = JedisPoolUtils.getJedis().lpush(MESSAGE_KEY, message);
             System.out.println(Thread.currentThread().getName() + " put message,size=" + size + ",count=" + count);
             count++;
         } catch (Exception e) {
@@ -30,5 +32,11 @@ public class MessageProducer implements Runnable {
         for (int i = 0; i < 5; i++) {
             putMessage("message" + count);
         }
+    }
+
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        for (int i = 0; i < 5; i++)
+            executor.execute(new MessageProducer());
     }
 }
