@@ -55,7 +55,7 @@ public class TestRedis extends BaseTest {
 
 	@Test
 	public void testSet1() {
-		 vOps.set("jdkSer", "jdkSer");
+		 vOps.set("jdkSer22", "jdkSer");
 		// System.out.println(vOps.get("jdkSer"));
 		// template.delete("jdkSer");
 		// System.out.println(vOps.get("jdkSer"));
@@ -63,7 +63,7 @@ public class TestRedis extends BaseTest {
 //		User user = userServiceImpl.selectByPrimaryKey(2);
 //		vOps.set("user1", user);
 		// hash
-		template.delete("myHash");
+//		template.delete("myHash");
 		hOps.put("myHash", "BJ", "北京");
 		hOps.put("myHash", "SH", "上海");
 		hOps.put("myHash", "HN", "河南");
